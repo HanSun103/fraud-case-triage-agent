@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "id": "merchant-risk-reference",
+    "title": "Merchant Risk Reference",
+    "sourceUrl": null,
+    "sourceType": "reference-data",
+    "jurisdiction": "Demo",
+    "topic": "Merchant category review cues",
+    "publicationDate": "2026-03-18",
+    "tags": [
+      "merchant",
+      "electronics",
+      "travel",
+      "cross-border",
+      "high-amount"
+    ]
+  },
+  "sections": [
+    {
+      "heading": "Electronics and luxury-style purchases",
+      "content": "Electronics and other high-resale categories often deserve closer review when paired with first-use device activity, cross-border spending, or unusually high amounts."
+    },
+    {
+      "heading": "Travel and lodging merchants",
+      "content": "Travel merchants may represent valid customer behavior, especially when travel notice exists, but they still require review when a new device and high amount appear together."
+    },
+    {
+      "heading": "Context-first interpretation",
+      "content": "Merchant category alone is not a fraud outcome. Analysts should combine category, device familiarity, country mismatch, and transaction velocity before escalating."
+    }
+  ]
+}

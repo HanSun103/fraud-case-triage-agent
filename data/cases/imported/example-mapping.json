@@ -1,0 +1,58 @@
+{
+  "defaults": {
+    "source": "imported",
+    "scenarioType": "External import",
+    "tags": [
+      "csv-import"
+    ],
+    "alert": {
+      "alertSource": "Other",
+      "customer": {
+        "customerSegment": "Other",
+        "accountHistoryNotes": ""
+      }
+    }
+  },
+  "fieldMap": {
+    "id": "row_id",
+    "label": "label",
+    "description": "description",
+    "expectedOutcome": "expected_risk",
+    "expectedRiskTier": "expected_risk",
+    "alert.caseId": "row_id",
+    "alert.alertTriggerReason": "alert_trigger",
+    "alert.analystNotes": "analyst_notes",
+    "alert.customer.customerId": "row_id",
+    "alert.customer.customerName": "customer_name",
+    "alert.customer.customerHomeCountry": "home_country",
+    "alert.customer.homeLocation": "home_location",
+    "alert.customer.accountAgeDays": "account_age_days",
+    "alert.customer.priorChargebackCount": "chargebacks",
+    "alert.customer.travelNoticeOnFile": "travel_notice",
+    "alert.customer.analystNotes": "analyst_notes",
+    "alert.transaction.caseId": "row_id",
+    "alert.transaction.transactionId": "row_id",
+    "alert.transaction.eventTime": "event_time",
+    "alert.transaction.amount": "transaction_amount",
+    "alert.transaction.currency": "currency",
+    "alert.transaction.channel": "channel",
+    "alert.transaction.merchantName": "merchant_name",
+    "alert.transaction.merchantCategory": "merchant_category",
+    "alert.transaction.merchantCountry": "merchant_country",
+    "alert.transaction.transactionLocation": "transaction_location",
+    "alert.transaction.prior30dTxnCount": "prior30d",
+    "alert.transaction.prior24hTxnCount": "prior24h",
+    "alert.transaction.typicalTransactionAmount": "typical_amount",
+    "alert.device.deviceId": "row_id",
+    "alert.device.knownDevice": "known_device",
+    "alert.device.deviceAgeDays": "device_age_days",
+    "alert.merchant.merchantName": "merchant_name",
+    "alert.merchant.merchantCategory": "merchant_category",
+    "alert.merchant.merchantCountry": "merchant_country",
+    "alert.merchant.knownMerchant": "known_merchant",
+    "alert.geolocation.transactionLocation": "transaction_location",
+    "alert.geolocation.homeLocation": "home_location",
+    "alert.geolocation.merchantCountry": "merchant_country",
+    "alert.geolocation.customerHomeCountry": "home_country"
+  }
+}

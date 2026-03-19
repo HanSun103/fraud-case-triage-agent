@@ -59,14 +59,16 @@ export function RiskSignalDetectionAgent(
   );
 
   const historyNotes = structuredAlert.accountHistory.toLowerCase();
-  const travelContext = includesAny(historyNotes, [
-    "travel",
-    "travelling",
-    "traveling",
-    "trip",
-    "vacation",
-    "airport",
-  ]);
+  const travelContext =
+    structuredAlert.travelNoticeOnFile ||
+    includesAny(historyNotes, [
+      "travel",
+      "travelling",
+      "traveling",
+      "trip",
+      "vacation",
+      "airport",
+    ]);
 
   if (crossBorder) {
     signals.push({
@@ -116,7 +118,7 @@ export function RiskSignalDetectionAgent(
     });
   }
 
-  if (structuredAlert.merchantFamiliarity === "New") {
+  if (!structuredAlert.knownMerchant) {
     signals.push({
       id: "new-merchant",
       title: "New merchant",
@@ -126,7 +128,7 @@ export function RiskSignalDetectionAgent(
     });
   }
 
-  if (structuredAlert.deviceStatus === "New") {
+  if (!structuredAlert.knownDevice) {
     signals.push({
       id: "new-device",
       title: "New device",
@@ -155,8 +157,8 @@ export function RiskSignalDetectionAgent(
 
   if (
     !signals.length &&
-    structuredAlert.deviceStatus === "Known" &&
-    structuredAlert.merchantFamiliarity === "Usual"
+    structuredAlert.knownDevice &&
+    structuredAlert.knownMerchant
   ) {
     mitigatingFactors.push(
       "Known device and usual merchant both align with established customer behavior.",

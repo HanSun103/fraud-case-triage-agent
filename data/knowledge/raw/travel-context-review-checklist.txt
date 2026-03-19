@@ -1,0 +1,9 @@
+Travel context review checklist for the demo:
+
+If travel notice is on file, analysts should verify whether the location change aligns with the declared travel window before treating location mismatch as a strong signal.
+
+Known device plus travel notice usually reduces concern unless there is also unusual amount growth, rapid repeat attempts, or a merchant pattern that conflicts with recent customer behavior.
+
+New device plus foreign merchant plus elevated amount should still receive closer review even when travel is plausible.
+
+Analyst notes should state whether travel context was verified, assumed, missing, or contradicted by other evidence.

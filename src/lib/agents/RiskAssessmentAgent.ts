@@ -3,6 +3,7 @@ import {
   RecommendedAction,
   RiskAssessment,
   RiskLevel,
+  ScoreBreakdownItem,
   StructuredAlert,
 } from "@/types/fraud";
 
@@ -30,8 +31,14 @@ export function RiskAssessmentAgent(params: {
   signals: DetectedSignal[];
   mitigatingFactors: string[];
 }): RiskAssessment {
-  const baseScore = scoreSignals(params.signals);
-  let score = baseScore;
+  const scoreBreakdown: ScoreBreakdownItem[] = params.signals.map((signal) => ({
+    id: signal.id,
+    label: signal.title,
+    delta: signal.severity === "strong" ? 3 : 1.5,
+    explanation: signal.explanation,
+    category: "signal",
+  }));
+  let score = scoreBreakdown.reduce((total, item) => total + item.delta, 0);
 
   const hasStrongLocationAndAmount =
     params.signals.some((signal) => signal.id === "unusual-location") &&
@@ -47,18 +54,41 @@ export function RiskAssessmentAgent(params: {
 
   if (hasStrongLocationAndAmount || hasNewDeviceAndHighAmount) {
     score += 2;
+    scoreBreakdown.push({
+      id: "high-risk-pattern-bonus",
+      label: "High-risk pattern bonus",
+      delta: 2,
+      explanation:
+        "Layered high-risk combinations increase concern when location, amount, and device signals appear together.",
+      category: "combination",
+    });
   }
 
   if (params.mitigatingFactors.length > 0) {
     score -= 1.5;
+    scoreBreakdown.push({
+      id: "mitigating-context",
+      label: "Mitigating context",
+      delta: -1.5,
+      explanation: params.mitigatingFactors.join(" "),
+      category: "mitigation",
+    });
   }
 
   if (
-    params.structuredAlert.deviceStatus === "Known" &&
-    params.structuredAlert.merchantFamiliarity === "Usual" &&
+    params.structuredAlert.knownDevice &&
+    params.structuredAlert.knownMerchant &&
     params.signals.length <= 1
   ) {
     score -= 1;
+    scoreBreakdown.push({
+      id: "known-pattern-credit",
+      label: "Known behavior credit",
+      delta: -1,
+      explanation:
+        "Known device and usual merchant reduce concern when very few suspicious signals are present.",
+      category: "mitigation",
+    });
   }
 
   let riskLevel: RiskLevel = "Low";
@@ -92,5 +122,6 @@ export function RiskAssessmentAgent(params: {
         ? `${reason} Mitigating context was also identified.`
         : reason,
     score: Number(score.toFixed(1)),
+    scoreBreakdown,
   };
 }

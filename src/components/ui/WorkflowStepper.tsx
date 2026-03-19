@@ -1,9 +1,11 @@
 const steps = [
   "Fraud Alert",
   "Alert Intake Agent",
-  "Risk Signal Detection Agent",
+  "Signal Detection Agent",
   "Risk Assessment Agent",
-  "Case Summary Generator",
+  "Guidance Retrieval Agent",
+  "Narrative Summary Agent",
+  "Investigator Recommendation Agent",
   "Investigator Review",
 ];
 
@@ -13,7 +15,7 @@ export function WorkflowStepper() {
       <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/80">
         Multi-Agent Workflow
       </p>
-      <div className="mt-4 grid gap-3 md:grid-cols-6">
+      <div className="mt-4 grid gap-3 md:grid-cols-8">
         {steps.map((step, index) => (
           <div
             key={step}

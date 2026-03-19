@@ -1,0 +1,16 @@
+{
+  "id": "travel-context-review-checklist",
+  "title": "Travel Context Review Checklist",
+  "sourceUrl": null,
+  "sourceType": "internal-policy",
+  "jurisdiction": "Demo",
+  "topic": "Travel-related false positive review",
+  "publicationDate": "2026-03-18",
+  "tags": [
+    "travel",
+    "false-positive",
+    "location-mismatch",
+    "known-device",
+    "manual-review"
+  ]
+}

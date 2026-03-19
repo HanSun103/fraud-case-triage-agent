@@ -1,0 +1,906 @@
+[
+  {
+    "id": "generated-routine-11",
+    "label": "Low Risk: Generated Routine domestic spend 11",
+    "expectedOutcome": "Likely Low Risk",
+    "expectedRiskTier": "Low",
+    "description": "Known device, usual merchant, and in-pattern domestic activity.",
+    "source": "generated",
+    "scenarioType": "Low-risk normal behavior",
+    "tags": [
+      "routine",
+      "known-device",
+      "usual-merchant",
+      "domestic"
+    ],
+    "alert": {
+      "caseId": "case-generated-routine-11",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Velocity threshold crossed",
+      "analystNotes": "Routine spend pattern aligned with historical domestic behavior.",
+      "customer": {
+        "customerId": "cust-drew-thompson",
+        "customerName": "Drew Thompson",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Calgary, Canada",
+        "accountAgeDays": 570,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer regularly uses the same device at familiar local merchants with low dispute activity.",
+        "analystNotes": "Routine spend pattern aligned with historical domestic behavior."
+      },
+      "transaction": {
+        "caseId": "case-generated-routine-11",
+        "transactionId": "txn-generated-routine-11",
+        "eventTime": "2026-03-28T08:20",
+        "amount": 150,
+        "currency": "CAD",
+        "channel": "Card Present",
+        "merchantName": "Neighborhood Pharmacy",
+        "merchantCategory": "Pharmacy",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Calgary, Canada",
+        "prior30dTxnCount": 2,
+        "prior24hTxnCount": 1,
+        "typicalTransactionAmount": 145
+      },
+      "device": {
+        "deviceId": "device-drew-thompson-neighborhood-pharmacy",
+        "knownDevice": true,
+        "deviceAgeDays": 520
+      },
+      "merchant": {
+        "merchantName": "Neighborhood Pharmacy",
+        "merchantCategory": "Pharmacy",
+        "merchantCountry": "Canada",
+        "knownMerchant": true
+      },
+      "geolocation": {
+        "transactionLocation": "Calgary, Canada",
+        "homeLocation": "Calgary, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-cross-border-12",
+    "label": "High Risk: Generated Cross-border anomaly 12",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "Foreign transaction with elevated amount and weak historical support.",
+    "source": "generated",
+    "scenarioType": "Cross-border anomalies",
+    "tags": [
+      "cross-border",
+      "high-amount",
+      "new-device",
+      "new-merchant"
+    ],
+    "alert": {
+      "caseId": "case-generated-cross-border-12",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Unusual location + high amount",
+      "analystNotes": "Limited prior international activity and no travel notice located.",
+      "customer": {
+        "customerId": "cust-avery-smith",
+        "customerName": "Avery Smith",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Ottawa, Canada",
+        "accountAgeDays": 255,
+        "priorChargebackCount": 1,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer typically transacts domestically with modest average ticket size and low foreign activity.",
+        "analystNotes": "Limited prior international activity and no travel notice located."
+      },
+      "transaction": {
+        "caseId": "case-generated-cross-border-12",
+        "transactionId": "txn-generated-cross-border-12",
+        "eventTime": "2026-04-02T13:25",
+        "amount": 5450,
+        "currency": "CAD",
+        "channel": "Card Not Present",
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Japan",
+        "transactionLocation": "Tokyo, Japan",
+        "prior30dTxnCount": 17,
+        "prior24hTxnCount": 6,
+        "typicalTransactionAmount": 455
+      },
+      "device": {
+        "deviceId": "device-avery-smith-airport-hotel",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Japan",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Tokyo, Japan",
+        "homeLocation": "Ottawa, Canada",
+        "merchantCountry": "Japan",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-velocity-13",
+    "label": "Medium/High: Generated Velocity burst 13",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "Rapid repeat activity that compresses multiple transactions into a short window.",
+    "source": "generated",
+    "scenarioType": "Rapid velocity bursts",
+    "tags": [
+      "velocity",
+      "rapid-transactions",
+      "burst-pattern"
+    ],
+    "alert": {
+      "caseId": "case-generated-velocity-13",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Rapid transaction burst",
+      "analystNotes": "Transaction cadence accelerated sharply compared with the prior week.",
+      "customer": {
+        "customerId": "cust-riley-chen",
+        "customerName": "Riley Chen",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Vancouver, Canada",
+        "accountAgeDays": 486,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer generally uses the account a few times per week. Current same-day volume is unusual.",
+        "analystNotes": "Transaction cadence accelerated sharply compared with the prior week."
+      },
+      "transaction": {
+        "caseId": "case-generated-velocity-13",
+        "transactionId": "txn-generated-velocity-13",
+        "eventTime": "2026-03-29T09:21",
+        "amount": 1360,
+        "currency": "CAD",
+        "channel": "Online",
+        "merchantName": "Luxury Outlet",
+        "merchantCategory": "Luxury Goods",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Vancouver, Canada",
+        "prior30dTxnCount": 34,
+        "prior24hTxnCount": 18,
+        "typicalTransactionAmount": 205
+      },
+      "device": {
+        "deviceId": "device-riley-chen-luxury-outlet",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Luxury Outlet",
+        "merchantCategory": "Luxury Goods",
+        "merchantCountry": "Canada",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Vancouver, Canada",
+        "homeLocation": "Vancouver, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-account-takeover-14",
+    "label": "High Risk: Generated Account takeover pattern 14",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "New-device behavior combined with abrupt change in spend and profile confidence.",
+    "source": "generated",
+    "scenarioType": "Account takeover patterns",
+    "tags": [
+      "account-takeover",
+      "new-device",
+      "chargeback-history",
+      "manual-review"
+    ],
+    "alert": {
+      "caseId": "case-generated-account-takeover-14",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Account access anomaly",
+      "analystNotes": "Device mismatch and elevated spend suggest possible account compromise.",
+      "customer": {
+        "customerId": "cust-quinn-davis",
+        "customerName": "Quinn Davis",
+        "customerSegment": "Affluent",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Ottawa, Canada",
+        "accountAgeDays": 324,
+        "priorChargebackCount": 2,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer usually transacts on a long-standing device and rarely exceeds baseline spend limits.",
+        "analystNotes": "Device mismatch and elevated spend suggest possible account compromise."
+      },
+      "transaction": {
+        "caseId": "case-generated-account-takeover-14",
+        "transactionId": "txn-generated-account-takeover-14",
+        "eventTime": "2026-04-06T17:29",
+        "amount": 3680,
+        "currency": "CAD",
+        "channel": "Mobile",
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Ottawa, Canada",
+        "prior30dTxnCount": 21,
+        "prior24hTxnCount": 6,
+        "typicalTransactionAmount": 315
+      },
+      "device": {
+        "deviceId": "device-quinn-davis-airport-hotel",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Canada",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Ottawa, Canada",
+        "homeLocation": "Ottawa, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-new-device-merchant-15",
+    "label": "Medium/High: Generated New device and merchant 15",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "Fresh device activity paired with first-time merchant usage.",
+    "source": "generated",
+    "scenarioType": "New device + new merchant combinations",
+    "tags": [
+      "new-device",
+      "new-merchant",
+      "behavior-shift"
+    ],
+    "alert": {
+      "caseId": "case-generated-new-device-merchant-15",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "New device + new merchant",
+      "analystNotes": "Current merchant and device have no prior match in known customer behavior.",
+      "customer": {
+        "customerId": "cust-drew-thompson",
+        "customerName": "Drew Thompson",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Vancouver, Canada",
+        "accountAgeDays": 490,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer usually spends with recurring merchants using a previously registered device.",
+        "analystNotes": "Current merchant and device have no prior match in known customer behavior."
+      },
+      "transaction": {
+        "caseId": "case-generated-new-device-merchant-15",
+        "transactionId": "txn-generated-new-device-merchant-15",
+        "eventTime": "2026-04-09T10:32",
+        "amount": 2220,
+        "currency": "CAD",
+        "channel": "Online",
+        "merchantName": "Luxury Outlet",
+        "merchantCategory": "Luxury Goods",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Vancouver, Canada",
+        "prior30dTxnCount": 18,
+        "prior24hTxnCount": 4,
+        "typicalTransactionAmount": 222
+      },
+      "device": {
+        "deviceId": "device-drew-thompson-luxury-outlet",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Luxury Outlet",
+        "merchantCategory": "Luxury Goods",
+        "merchantCountry": "Canada",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Vancouver, Canada",
+        "homeLocation": "Vancouver, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-travel-mitigation-16",
+    "label": "Low/Medium: Generated Travel context 16",
+    "expectedOutcome": "Likely Medium Risk",
+    "expectedRiskTier": "Medium",
+    "description": "Location mismatch moderated by a plausible travel explanation and known behavior.",
+    "source": "generated",
+    "scenarioType": "Travel-context mitigations",
+    "tags": [
+      "travel",
+      "location-mismatch",
+      "mitigation",
+      "known-device"
+    ],
+    "alert": {
+      "caseId": "case-generated-travel-mitigation-16",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Location mismatch",
+      "analystNotes": "Travel notice is on file and prior travel spend has been legitimate.",
+      "customer": {
+        "customerId": "cust-riley-chen",
+        "customerName": "Riley Chen",
+        "customerSegment": "Traveling Customer",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Ottawa, Canada",
+        "accountAgeDays": 710,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": true,
+        "accountHistoryNotes": "Customer reported travel this week and shows recurring travel spend patterns several times each year.",
+        "analystNotes": "Travel notice is on file and prior travel spend has been legitimate."
+      },
+      "transaction": {
+        "caseId": "case-generated-travel-mitigation-16",
+        "transactionId": "txn-generated-travel-mitigation-16",
+        "eventTime": "2026-04-07T08:30",
+        "amount": 715,
+        "currency": "CAD",
+        "channel": "Card Not Present",
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "France",
+        "transactionLocation": "Paris, France",
+        "prior30dTxnCount": 18,
+        "prior24hTxnCount": 3,
+        "typicalTransactionAmount": 470
+      },
+      "device": {
+        "deviceId": "device-riley-chen-electronics-world",
+        "knownDevice": true,
+        "deviceAgeDays": 560
+      },
+      "merchant": {
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "France",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Paris, France",
+        "homeLocation": "Ottawa, Canada",
+        "merchantCountry": "France",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-false-positive-17",
+    "label": "Low/Medium: Generated False-positive edge case 17",
+    "expectedOutcome": "Likely Low Risk",
+    "expectedRiskTier": "Low",
+    "description": "A narrow anomaly exists, but the surrounding context mostly fits expected behavior.",
+    "source": "generated",
+    "scenarioType": "False-positive style edge cases",
+    "tags": [
+      "false-positive",
+      "edge-case",
+      "manual-review"
+    ],
+    "alert": {
+      "caseId": "case-generated-false-positive-17",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Amount slightly above baseline",
+      "analystNotes": "Current transaction is elevated but still consistent with merchant and device history.",
+      "customer": {
+        "customerId": "cust-quinn-davis",
+        "customerName": "Quinn Davis",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Calgary, Canada",
+        "accountAgeDays": 1040,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer occasionally makes moderate one-off purchases at familiar domestic merchants without dispute activity.",
+        "analystNotes": "Current transaction is elevated but still consistent with merchant and device history."
+      },
+      "transaction": {
+        "caseId": "case-generated-false-positive-17",
+        "transactionId": "txn-generated-false-positive-17",
+        "eventTime": "2026-04-04T15:27",
+        "amount": 920,
+        "currency": "CAD",
+        "channel": "Card Present",
+        "merchantName": "Neighborhood Pharmacy",
+        "merchantCategory": "Pharmacy",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Calgary, Canada",
+        "prior30dTxnCount": 19,
+        "prior24hTxnCount": 1,
+        "typicalTransactionAmount": 638
+      },
+      "device": {
+        "deviceId": "device-quinn-davis-neighborhood-pharmacy",
+        "knownDevice": true,
+        "deviceAgeDays": 365
+      },
+      "merchant": {
+        "merchantName": "Neighborhood Pharmacy",
+        "merchantCategory": "Pharmacy",
+        "merchantCountry": "Canada",
+        "knownMerchant": true
+      },
+      "geolocation": {
+        "transactionLocation": "Calgary, Canada",
+        "homeLocation": "Calgary, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-routine-18",
+    "label": "Low Risk: Generated Routine domestic spend 18",
+    "expectedOutcome": "Likely Low Risk",
+    "expectedRiskTier": "Low",
+    "description": "Known device, usual merchant, and in-pattern domestic activity.",
+    "source": "generated",
+    "scenarioType": "Low-risk normal behavior",
+    "tags": [
+      "routine",
+      "known-device",
+      "usual-merchant",
+      "domestic"
+    ],
+    "alert": {
+      "caseId": "case-generated-routine-18",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Velocity threshold crossed",
+      "analystNotes": "Routine spend pattern aligned with historical domestic behavior.",
+      "customer": {
+        "customerId": "cust-casey-brown",
+        "customerName": "Casey Brown",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Vancouver, Canada",
+        "accountAgeDays": 815,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer regularly uses the same device at familiar local merchants with low dispute activity.",
+        "analystNotes": "Routine spend pattern aligned with historical domestic behavior."
+      },
+      "transaction": {
+        "caseId": "case-generated-routine-18",
+        "transactionId": "txn-generated-routine-18",
+        "eventTime": "2026-03-28T08:20",
+        "amount": 234,
+        "currency": "CAD",
+        "channel": "Mobile",
+        "merchantName": "City Transit",
+        "merchantCategory": "Transit",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Vancouver, Canada",
+        "prior30dTxnCount": 3,
+        "prior24hTxnCount": 2,
+        "typicalTransactionAmount": 215
+      },
+      "device": {
+        "deviceId": "device-casey-brown-city-transit",
+        "knownDevice": true,
+        "deviceAgeDays": 800
+      },
+      "merchant": {
+        "merchantName": "City Transit",
+        "merchantCategory": "Transit",
+        "merchantCountry": "Canada",
+        "knownMerchant": true
+      },
+      "geolocation": {
+        "transactionLocation": "Vancouver, Canada",
+        "homeLocation": "Vancouver, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-cross-border-19",
+    "label": "High Risk: Generated Cross-border anomaly 19",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "Foreign transaction with elevated amount and weak historical support.",
+    "source": "generated",
+    "scenarioType": "Cross-border anomalies",
+    "tags": [
+      "cross-border",
+      "high-amount",
+      "new-device",
+      "new-merchant"
+    ],
+    "alert": {
+      "caseId": "case-generated-cross-border-19",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Unusual location + high amount",
+      "analystNotes": "Limited prior international activity and no travel notice located.",
+      "customer": {
+        "customerId": "cust-alex-martin",
+        "customerName": "Alex Martin",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Calgary, Canada",
+        "accountAgeDays": 395,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer typically transacts domestically with modest average ticket size and low foreign activity.",
+        "analystNotes": "Limited prior international activity and no travel notice located."
+      },
+      "transaction": {
+        "caseId": "case-generated-cross-border-19",
+        "transactionId": "txn-generated-cross-border-19",
+        "eventTime": "2026-04-02T13:25",
+        "amount": 7900,
+        "currency": "CAD",
+        "channel": "Card Not Present",
+        "merchantName": "Fast Cash Transfers",
+        "merchantCategory": "Money Transfer",
+        "merchantCountry": "USA",
+        "transactionLocation": "New York, USA",
+        "prior30dTxnCount": 24,
+        "prior24hTxnCount": 4,
+        "typicalTransactionAmount": 630
+      },
+      "device": {
+        "deviceId": "device-alex-martin-fast-cash-transfers",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Fast Cash Transfers",
+        "merchantCategory": "Money Transfer",
+        "merchantCountry": "USA",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "New York, USA",
+        "homeLocation": "Calgary, Canada",
+        "merchantCountry": "USA",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-velocity-20",
+    "label": "Medium/High: Generated Velocity burst 20",
+    "expectedOutcome": "Likely Medium Risk",
+    "expectedRiskTier": "Medium",
+    "description": "Rapid repeat activity that compresses multiple transactions into a short window.",
+    "source": "generated",
+    "scenarioType": "Rapid velocity bursts",
+    "tags": [
+      "velocity",
+      "rapid-transactions",
+      "burst-pattern"
+    ],
+    "alert": {
+      "caseId": "case-generated-velocity-20",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Rapid transaction burst",
+      "analystNotes": "Transaction cadence accelerated sharply compared with the prior week.",
+      "customer": {
+        "customerId": "cust-skyler-hall",
+        "customerName": "Skyler Hall",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Toronto, Canada",
+        "accountAgeDays": 682,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer generally uses the account a few times per week. Current same-day volume is unusual.",
+        "analystNotes": "Transaction cadence accelerated sharply compared with the prior week."
+      },
+      "transaction": {
+        "caseId": "case-generated-velocity-20",
+        "transactionId": "txn-generated-velocity-20",
+        "eventTime": "2026-03-29T09:21",
+        "amount": 1990,
+        "currency": "CAD",
+        "channel": "Online",
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Toronto, Canada",
+        "prior30dTxnCount": 48,
+        "prior24hTxnCount": 25,
+        "typicalTransactionAmount": 275
+      },
+      "device": {
+        "deviceId": "device-skyler-hall-electronics-world",
+        "knownDevice": true,
+        "deviceAgeDays": 180
+      },
+      "merchant": {
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Canada",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Toronto, Canada",
+        "homeLocation": "Toronto, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-account-takeover-21",
+    "label": "High Risk: Generated Account takeover pattern 21",
+    "expectedOutcome": "Likely High Risk",
+    "expectedRiskTier": "High",
+    "description": "New-device behavior combined with abrupt change in spend and profile confidence.",
+    "source": "generated",
+    "scenarioType": "Account takeover patterns",
+    "tags": [
+      "account-takeover",
+      "new-device",
+      "chargeback-history",
+      "manual-review"
+    ],
+    "alert": {
+      "caseId": "case-generated-account-takeover-21",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Account access anomaly",
+      "analystNotes": "Device mismatch and elevated spend suggest possible account compromise.",
+      "customer": {
+        "customerId": "cust-morgan-patel",
+        "customerName": "Morgan Patel",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Calgary, Canada",
+        "accountAgeDays": 450,
+        "priorChargebackCount": 1,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer usually transacts on a long-standing device and rarely exceeds baseline spend limits.",
+        "analystNotes": "Device mismatch and elevated spend suggest possible account compromise."
+      },
+      "transaction": {
+        "caseId": "case-generated-account-takeover-21",
+        "transactionId": "txn-generated-account-takeover-21",
+        "eventTime": "2026-04-06T17:29",
+        "amount": 5150,
+        "currency": "CAD",
+        "channel": "Mobile",
+        "merchantName": "Fast Cash Transfers",
+        "merchantCategory": "Money Transfer",
+        "merchantCountry": "France",
+        "transactionLocation": "Paris, France",
+        "prior30dTxnCount": 28,
+        "prior24hTxnCount": 5,
+        "typicalTransactionAmount": 420
+      },
+      "device": {
+        "deviceId": "device-morgan-patel-fast-cash-transfers",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Fast Cash Transfers",
+        "merchantCategory": "Money Transfer",
+        "merchantCountry": "France",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Paris, France",
+        "homeLocation": "Calgary, Canada",
+        "merchantCountry": "France",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-new-device-merchant-22",
+    "label": "Medium/High: Generated New device and merchant 22",
+    "expectedOutcome": "Likely Medium Risk",
+    "expectedRiskTier": "Medium",
+    "description": "Fresh device activity paired with first-time merchant usage.",
+    "source": "generated",
+    "scenarioType": "New device + new merchant combinations",
+    "tags": [
+      "new-device",
+      "new-merchant",
+      "behavior-shift"
+    ],
+    "alert": {
+      "caseId": "case-generated-new-device-merchant-22",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "New device + new merchant",
+      "analystNotes": "Current merchant and device have no prior match in known customer behavior.",
+      "customer": {
+        "customerId": "cust-casey-brown",
+        "customerName": "Casey Brown",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Toronto, Canada",
+        "accountAgeDays": 665,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer usually spends with recurring merchants using a previously registered device.",
+        "analystNotes": "Current merchant and device have no prior match in known customer behavior."
+      },
+      "transaction": {
+        "caseId": "case-generated-new-device-merchant-22",
+        "transactionId": "txn-generated-new-device-merchant-22",
+        "eventTime": "2026-04-09T10:32",
+        "amount": 3060,
+        "currency": "CAD",
+        "channel": "Online",
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Toronto, Canada",
+        "prior30dTxnCount": 25,
+        "prior24hTxnCount": 2,
+        "typicalTransactionAmount": 278
+      },
+      "device": {
+        "deviceId": "device-casey-brown-electronics-world",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Canada",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Toronto, Canada",
+        "homeLocation": "Toronto, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-travel-mitigation-23",
+    "label": "Low/Medium: Generated Travel context 23",
+    "expectedOutcome": "Likely Low Risk",
+    "expectedRiskTier": "Low",
+    "description": "Location mismatch moderated by a plausible travel explanation and known behavior.",
+    "source": "generated",
+    "scenarioType": "Travel-context mitigations",
+    "tags": [
+      "travel",
+      "location-mismatch",
+      "mitigation",
+      "known-device"
+    ],
+    "alert": {
+      "caseId": "case-generated-travel-mitigation-23",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Location mismatch",
+      "analystNotes": "Travel notice is on file and prior travel spend has been legitimate.",
+      "customer": {
+        "customerId": "cust-skyler-hall",
+        "customerName": "Skyler Hall",
+        "customerSegment": "Traveling Customer",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Calgary, Canada",
+        "accountAgeDays": 920,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": true,
+        "accountHistoryNotes": "Customer reported travel this week and shows recurring travel spend patterns several times each year.",
+        "analystNotes": "Travel notice is on file and prior travel spend has been legitimate."
+      },
+      "transaction": {
+        "caseId": "case-generated-travel-mitigation-23",
+        "transactionId": "txn-generated-travel-mitigation-23",
+        "eventTime": "2026-04-07T08:30",
+        "amount": 960,
+        "currency": "CAD",
+        "channel": "Card Not Present",
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Japan",
+        "transactionLocation": "Tokyo, Japan",
+        "prior30dTxnCount": 25,
+        "prior24hTxnCount": 2,
+        "typicalTransactionAmount": 610
+      },
+      "device": {
+        "deviceId": "device-skyler-hall-airport-hotel",
+        "knownDevice": true,
+        "deviceAgeDays": 700
+      },
+      "merchant": {
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "Japan",
+        "knownMerchant": true
+      },
+      "geolocation": {
+        "transactionLocation": "Tokyo, Japan",
+        "homeLocation": "Calgary, Canada",
+        "merchantCountry": "Japan",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  },
+  {
+    "id": "generated-false-positive-24",
+    "label": "Low/Medium: Generated False-positive edge case 24",
+    "expectedOutcome": "Likely Medium Risk",
+    "expectedRiskTier": "Medium",
+    "description": "A narrow anomaly exists, but the surrounding context mostly fits expected behavior.",
+    "source": "generated",
+    "scenarioType": "False-positive style edge cases",
+    "tags": [
+      "false-positive",
+      "edge-case",
+      "manual-review"
+    ],
+    "alert": {
+      "caseId": "case-generated-false-positive-24",
+      "alertSource": "Demo Scenario",
+      "alertTriggerReason": "Amount slightly above baseline",
+      "analystNotes": "Current transaction is elevated but still consistent with merchant and device history.",
+      "customer": {
+        "customerId": "cust-morgan-patel",
+        "customerName": "Morgan Patel",
+        "customerSegment": "Mass Retail",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Vancouver, Canada",
+        "accountAgeDays": 1355,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": false,
+        "accountHistoryNotes": "Customer occasionally makes moderate one-off purchases at familiar domestic merchants without dispute activity.",
+        "analystNotes": "Current transaction is elevated but still consistent with merchant and device history."
+      },
+      "transaction": {
+        "caseId": "case-generated-false-positive-24",
+        "transactionId": "txn-generated-false-positive-24",
+        "eventTime": "2026-04-04T15:27",
+        "amount": 1200,
+        "currency": "CAD",
+        "channel": "Mobile",
+        "merchantName": "City Transit",
+        "merchantCategory": "Transit",
+        "merchantCountry": "Canada",
+        "transactionLocation": "Vancouver, Canada",
+        "prior30dTxnCount": 26,
+        "prior24hTxnCount": 2,
+        "typicalTransactionAmount": 834
+      },
+      "device": {
+        "deviceId": "device-morgan-patel-city-transit",
+        "knownDevice": true,
+        "deviceAgeDays": 365
+      },
+      "merchant": {
+        "merchantName": "City Transit",
+        "merchantCategory": "Transit",
+        "merchantCountry": "Canada",
+        "knownMerchant": true
+      },
+      "geolocation": {
+        "transactionLocation": "Vancouver, Canada",
+        "homeLocation": "Vancouver, Canada",
+        "merchantCountry": "Canada",
+        "customerHomeCountry": "Canada"
+      }
+    }
+  }
+]

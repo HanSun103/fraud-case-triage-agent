@@ -1,0 +1,172 @@
+{
+  "version": "1",
+  "generatedAt": "2026-03-19T15:33:25.775Z",
+  "embeddingProvider": null,
+  "documents": [
+    {
+      "id": "fintrac-suspicious-transaction-guidance",
+      "title": "FINTRAC Suspicious Transaction Guidance Placeholder",
+      "sourceUrl": "https://fintrac-canafe.canada.ca/",
+      "sourceType": "official-guidance",
+      "jurisdiction": "Canada",
+      "topic": "Suspicious transaction indicators",
+      "publicationDate": "2026-03-18",
+      "tags": [
+        "fintrac",
+        "suspicious-transaction",
+        "cross-border",
+        "new-device",
+        "velocity",
+        "travel-context"
+      ]
+    },
+    {
+      "id": "merchant-risk-reference",
+      "title": "Merchant Risk Reference",
+      "sourceUrl": null,
+      "sourceType": "reference-data",
+      "jurisdiction": "Demo",
+      "topic": "Merchant category review cues",
+      "publicationDate": "2026-03-18",
+      "tags": [
+        "merchant",
+        "electronics",
+        "travel",
+        "cross-border",
+        "high-amount"
+      ]
+    },
+    {
+      "id": "travel-context-review-checklist",
+      "title": "Travel Context Review Checklist",
+      "sourceUrl": null,
+      "sourceType": "internal-policy",
+      "jurisdiction": "Demo",
+      "topic": "Travel-related false positive review",
+      "publicationDate": "2026-03-18",
+      "tags": [
+        "travel",
+        "false-positive",
+        "location-mismatch",
+        "known-device",
+        "manual-review"
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "chunkId": "fintrac-suspicious-transaction-guidance::0",
+      "documentId": "fintrac-suspicious-transaction-guidance",
+      "chunkIndex": 0,
+      "text": "FINTRAC suspicious transaction guidance placeholder\n\nThis local-first demo file is a placeholder for manually added authoritative guidance.\n\nAnalysts should review unusual cross-border activity, abrupt increases in transaction amount relative to normal customer behavior, rapid transaction velocity, new-device activity, and unexplained first-time merchant usage.\n\nLocation mismatch on its own may be weak evidence when customer travel is already known. It should be weighed together with device familiarity, merchant history, prior spending pattern, and any analyst notes.",
+      "tokenCount": 61,
+      "charCount": 573,
+      "searchableText": "FINTRAC Suspicious Transaction Guidance Placeholder\nSuspicious transaction indicators\nCanada\nfintrac suspicious-transaction cross-border new-device velocity travel-context\nFINTRAC suspicious transaction guidance placeholder\n\nThis local-first demo file is a placeholder for manually added authoritative guidance.\n\nAnalysts should review unusual cross-border activity, abrupt increases in transaction amount relative to normal customer behavior, rapid transaction velocity, new-device activity, and unexplained first-time merchant usage.\n\nLocation mismatch on its own may be weak evidence when customer travel is already known. It should be weighed together with device familiarity, merchant history, prior spending pattern, and any analyst notes.",
+      "citation": {
+        "documentId": "fintrac-suspicious-transaction-guidance",
+        "title": "FINTRAC Suspicious Transaction Guidance Placeholder",
+        "sourceUrl": "https://fintrac-canafe.canada.ca/",
+        "sourceType": "official-guidance",
+        "jurisdiction": "Canada",
+        "topic": "Suspicious transaction indicators",
+        "publicationDate": "2026-03-18",
+        "sourcePath": "data/knowledge/raw/fintrac-suspicious-transaction-guidance.md",
+        "chunkIndex": 0
+      },
+      "tags": [
+        "fintrac",
+        "suspicious-transaction",
+        "cross-border",
+        "new-device",
+        "velocity",
+        "travel-context"
+      ],
+      "embedding": null
+    },
+    {
+      "chunkId": "fintrac-suspicious-transaction-guidance::1",
+      "documentId": "fintrac-suspicious-transaction-guidance",
+      "chunkIndex": 1,
+      "text": "Location mismatch on its own may be weak evidence when customer travel is already known. It should be weighed together with device familiarity, merchant history, prior spending pattern, and any analyst notes.\n\nCase notes should record why a transaction appears suspicious, which signals raised concern, what context reduced concern, and why escalation or closure was recommended.\n\nReplace or extend this file only with guidance content that you are allowed to store locally for the demo.",
+      "tokenCount": 67,
+      "charCount": 487,
+      "searchableText": "FINTRAC Suspicious Transaction Guidance Placeholder\nSuspicious transaction indicators\nCanada\nfintrac suspicious-transaction cross-border new-device velocity travel-context\nLocation mismatch on its own may be weak evidence when customer travel is already known. It should be weighed together with device familiarity, merchant history, prior spending pattern, and any analyst notes.\n\nCase notes should record why a transaction appears suspicious, which signals raised concern, what context reduced concern, and why escalation or closure was recommended.\n\nReplace or extend this file only with guidance content that you are allowed to store locally for the demo.",
+      "citation": {
+        "documentId": "fintrac-suspicious-transaction-guidance",
+        "title": "FINTRAC Suspicious Transaction Guidance Placeholder",
+        "sourceUrl": "https://fintrac-canafe.canada.ca/",
+        "sourceType": "official-guidance",
+        "jurisdiction": "Canada",
+        "topic": "Suspicious transaction indicators",
+        "publicationDate": "2026-03-18",
+        "sourcePath": "data/knowledge/raw/fintrac-suspicious-transaction-guidance.md",
+        "chunkIndex": 1
+      },
+      "tags": [
+        "fintrac",
+        "suspicious-transaction",
+        "cross-border",
+        "new-device",
+        "velocity",
+        "travel-context"
+      ],
+      "embedding": null
+    },
+    {
+      "chunkId": "merchant-risk-reference::0",
+      "documentId": "merchant-risk-reference",
+      "chunkIndex": 0,
+      "text": "Electronics and luxury-style purchases\nElectronics and other high-resale categories often deserve closer review when paired with first-use device activity, cross-border spending, or unusually high amounts.\n\nTravel and lodging merchants\nTravel merchants may represent valid customer behavior, especially when travel notice exists, but they still require review when a new device and high amount appear together.\n\nContext-first interpretation\nMerchant category alone is not a fraud outcome. Analysts should combine category, device familiarity, country mismatch, and transaction velocity before escalating.",
+      "tokenCount": 65,
+      "charCount": 604,
+      "searchableText": "Merchant Risk Reference\nMerchant category review cues\nDemo\nmerchant electronics travel cross-border high-amount\nElectronics and luxury-style purchases\nElectronics and other high-resale categories often deserve closer review when paired with first-use device activity, cross-border spending, or unusually high amounts.\n\nTravel and lodging merchants\nTravel merchants may represent valid customer behavior, especially when travel notice exists, but they still require review when a new device and high amount appear together.\n\nContext-first interpretation\nMerchant category alone is not a fraud outcome. Analysts should combine category, device familiarity, country mismatch, and transaction velocity before escalating.",
+      "citation": {
+        "documentId": "merchant-risk-reference",
+        "title": "Merchant Risk Reference",
+        "sourceUrl": null,
+        "sourceType": "reference-data",
+        "jurisdiction": "Demo",
+        "topic": "Merchant category review cues",
+        "publicationDate": "2026-03-18",
+        "sourcePath": "data/knowledge/raw/merchant-risk-reference.json",
+        "chunkIndex": 0
+      },
+      "tags": [
+        "merchant",
+        "electronics",
+        "travel",
+        "cross-border",
+        "high-amount"
+      ],
+      "embedding": null
+    },
+    {
+      "chunkId": "travel-context-review-checklist::0",
+      "documentId": "travel-context-review-checklist",
+      "chunkIndex": 0,
+      "text": "Travel context review checklist for the demo:\n\nIf travel notice is on file, analysts should verify whether the location change aligns with the declared travel window before treating location mismatch as a strong signal.\n\nKnown device plus travel notice usually reduces concern unless there is also unusual amount growth, rapid repeat attempts, or a merchant pattern that conflicts with recent customer behavior.\n\nNew device plus foreign merchant plus elevated amount should still receive closer review even when travel is plausible.\n\nAnalyst notes should state whether travel context was verified, assumed, missing, or contradicted by other evidence.",
+      "tokenCount": 69,
+      "charCount": 650,
+      "searchableText": "Travel Context Review Checklist\nTravel-related false positive review\nDemo\ntravel false-positive location-mismatch known-device manual-review\nTravel context review checklist for the demo:\n\nIf travel notice is on file, analysts should verify whether the location change aligns with the declared travel window before treating location mismatch as a strong signal.\n\nKnown device plus travel notice usually reduces concern unless there is also unusual amount growth, rapid repeat attempts, or a merchant pattern that conflicts with recent customer behavior.\n\nNew device plus foreign merchant plus elevated amount should still receive closer review even when travel is plausible.\n\nAnalyst notes should state whether travel context was verified, assumed, missing, or contradicted by other evidence.",
+      "citation": {
+        "documentId": "travel-context-review-checklist",
+        "title": "Travel Context Review Checklist",
+        "sourceUrl": null,
+        "sourceType": "internal-policy",
+        "jurisdiction": "Demo",
+        "topic": "Travel-related false positive review",
+        "publicationDate": "2026-03-18",
+        "sourcePath": "data/knowledge/raw/travel-context-review-checklist.txt",
+        "chunkIndex": 0
+      },
+      "tags": [
+        "travel",
+        "false-positive",
+        "location-mismatch",
+        "known-device",
+        "manual-review"
+      ],
+      "embedding": null
+    }
+  ]
+}

@@ -1,173 +1,243 @@
-# Fraud Case Triage Agent
+# Fraud Triage Demo
 
-A simple but polished proof-of-concept web app that demonstrates how a GenAI-assisted fraud triage workflow could support fraud investigators.
+A polished, traceable suspicious-activity / fraud triage demo built with Next.js and TypeScript.
 
-This project is intentionally demo-oriented:
+The project is optimized for live presentation:
 
-- It uses synthetic fraud alert data.
-- It keeps rule-based detection logic visible and easy to explain.
-- It optionally uses OpenAI to generate a more natural case summary.
-- It keeps the human investigator in the loop for the final decision.
+- risk scoring stays rule-based and explainable
+- guidance retrieval is local-first and file-based
+- multi-agent execution is traceable in the API, terminal logs, and UI
+- demo mode still works when OpenAI is unavailable
+- `HYBRID_OPENAI` can make selected agents OpenAI-first while preserving local fallback and verification
 
-## What the app does
+## Project Overview
 
-The app simulates a four-stage agent workflow:
+This app simulates an analyst workstation that can:
 
-1. `AlertIntakeAgent`
-2. `RiskSignalDetectionAgent`
-3. `RiskAssessmentAgent`
-4. `CaseSummaryGenerator`
+- browse synthetic, generated, and imported cases
+- normalize alerts into a richer `CaseAlert` domain model
+- detect suspicious signals
+- compute an explainable score and risk tier
+- retrieve relevant local guidance passages with citations
+- generate an investigator-facing summary narrative
+- show a per-agent execution trace for debugging and demos
 
-The UI lets you:
-
-- load predefined synthetic sample alerts
-- edit alert fields in a form
-- submit an alert for triage
-- review structured output, detected signals, risk level, next action, and generated summary
-
-## Tech stack
-
-- Next.js
-- React
-- Tailwind CSS
-- Node.js API route
-- OpenAI API for optional summary enhancement
-
-## Folder structure
+## Demo Architecture
 
 ```text
-fraud-case-triage-agent/
-  src/
-    app/
-      api/triage/route.ts
-      globals.css
-      layout.tsx
-      page.tsx
-    components/
-      FraudTriageWorkbench.tsx
-      ui/
-        RiskBadge.tsx
-        WorkflowStepper.tsx
-    data/
-      sampleAlerts.ts
-    lib/
-      agents/
-        AlertIntakeAgent.ts
-        RiskSignalDetectionAgent.ts
-        RiskAssessmentAgent.ts
-        CaseSummaryGenerator.ts
-      openai/
-        generateCaseSummary.ts
-      utils/
-        fraudFormatting.ts
-      triagePipeline.ts
-    types/
-      fraud.ts
-  .env.example
-  package.json
-  README.md
+Browser workstation
+  -> POST /api/triage
+    -> orchestrator
+      -> AlertIntakeAgent
+      -> SignalDetectionAgent
+      -> RiskAssessmentAgent
+      -> GuidanceRetrievalAgent
+      -> InvestigatorRecommendationAgent
+      -> NarrativeSummaryAgent
+    -> structured result + trace
 ```
 
-## Main files
+Important directories:
 
-- `src/app/page.tsx`: main page entry
-- `src/components/FraudTriageWorkbench.tsx`: polished single-page demo UI
-- `src/app/api/triage/route.ts`: API endpoint that runs the workflow
-- `src/lib/triagePipeline.ts`: orchestrates the four demo agents
-- `src/lib/agents/AlertIntakeAgent.ts`: normalizes alert input
-- `src/lib/agents/RiskSignalDetectionAgent.ts`: identifies suspicious fraud signals
-- `src/lib/agents/RiskAssessmentAgent.ts`: assigns risk level and recommended action
-- `src/lib/agents/CaseSummaryGenerator.ts`: creates investigator-friendly case narrative
-- `src/data/sampleAlerts.ts`: synthetic example cases for demo use
-- `src/types/fraud.ts`: shared data contracts
+- `src/app/api/triage/route.ts`: API entry point
+- `src/lib/orchestration/`: multi-agent runtime and trace collection
+- `src/lib/agents/`: local agent implementations
+- `src/lib/openai/`: OpenAI-backed agent adapters
+- `src/lib/rag/`: local guidance ingestion, chunking, and retrieval
+- `src/lib/data/`: dataset loading, filtering, random selection, and comparison
+- `data/cases/`: sample, generated, and imported case datasets
+- `data/knowledge/`: raw and processed guidance documents
+- `tests/`: lightweight reliability-focused tests
 
-## Setup
+## Agent Workflow
 
-## 1. Install Node.js
+Execution order:
 
-Install a current Node.js version first if it is not already available on your machine.
+1. `AlertIntakeAgent`
+2. `SignalDetectionAgent`
+3. `RiskAssessmentAgent`
+4. `GuidanceRetrievalAgent`
+5. `InvestigatorRecommendationAgent`
+6. `NarrativeSummaryAgent`
 
-Recommended:
+Responsibilities:
 
-- Node.js 20 or newer
+- `AlertIntakeAgent`: normalizes request payloads into the shared structured alert shape
+- `SignalDetectionAgent`: detects suspicious signals and mitigating context
+- `RiskAssessmentAgent`: calculates score, tier, and score breakdown
+- `GuidanceRetrievalAgent`: retrieves local passages and, in hybrid mode, can use OpenAI to explain why they matter
+- `InvestigatorRecommendationAgent`: turns risk output into an investigator-ready action recommendation
+- `NarrativeSummaryAgent`: produces the final narrative summary
 
-## 2. Install dependencies
+### Execution Modes
 
-From the project folder:
+`LOCAL_RULES_ONLY`
+
+- every agent runs locally
+- scoring is fully deterministic
+- the summary uses the local template
+
+`HYBRID_OPENAI`
+
+- `AlertIntakeAgent` is OpenAI-first with local fallback/verification
+- `SignalDetectionAgent` is OpenAI-first with local fallback/verification
+- `GuidanceRetrievalAgent` keeps raw retrieval local, then uses OpenAI to interpret the passages
+- `InvestigatorRecommendationAgent` is OpenAI-first with rule-based verification
+- `NarrativeSummaryAgent` is OpenAI-first with local fallback
+- `RiskAssessmentAgent` remains local and authoritative
+
+## Guidance / RAG Design
+
+The retrieval layer is deliberately local-first and database-free.
+
+- raw guidance lives in `data/knowledge/raw`
+- the app chunks and processes documents into `data/knowledge/processed/guidance-store.json`
+- retrieval is keyword-first with a lightweight similarity fallback
+- results always return visible citation metadata
+- in hybrid mode, retrieved passages can also receive an OpenAI-generated relevance explanation
+
+This keeps the system easy to debug and safe for classroom or judge-panel demos.
+
+More detail is in `RAG_README.md`.
+
+## Dataset Strategy
+
+The demo uses a scalable local dataset workflow:
+
+- `data/cases/sample`: curated sample cases
+- `data/cases/generated`: synthetic cases generated by script
+- `data/cases/imported`: CSV-imported cases normalized into the internal schema
+
+The internal case model centers on `CaseAlert`, not on a flat alert row. A loader utility supports:
+
+- browse all cases
+- filter by source and expected risk tier
+- load a random case
+- compare two cases
+
+More detail is in `DATASET_README.md`.
+
+## How To Run In Demo Mode
+
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-## 3. Configure environment variables
+2. Copy `.env.example` to `.env.local`
 
-Copy `.env.example` to `.env.local` and add your OpenAI API key:
+3. Keep demo mode local and reliable:
 
 ```env
-OPENAI_API_KEY=your_key_here
+TRIAGE_MODE=LOCAL_RULES_ONLY
+OPENAI_API_KEY=$OPENAI_API_KEY
 OPENAI_MODEL=gpt-4.1-mini
+OPENAI_AGENT_MODEL=gpt-4.1-mini
 ```
 
-If no API key is provided, the app still works. It falls back to a local template-based case summary.
-
-## 4. Run the app
+4. Start the app:
 
 ```bash
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+5. Open [http://localhost:3000](http://localhost:3000)
 
-## How the logic works
+## How To Enable OpenAI
 
-The fraud decisioning logic is intentionally transparent and rule based.
+Set:
 
-Examples of signals:
+```env
+TRIAGE_MODE=HYBRID_OPENAI
+OPENAI_API_KEY=your_openai_key_here
+OPENAI_MODEL=gpt-4.1-mini
+OPENAI_AGENT_MODEL=gpt-4.1-mini
+```
 
-- unusual location
-- high transaction amount
-- rapid transaction activity
-- new merchant
-- new device
-- low account age
-- abnormal amount relative to typical behavior
+Behavior in this mode:
 
-High-risk patterns include combinations such as:
+- OpenAI becomes the primary implementation for intake, signal detection, guidance interpretation, recommendation, and narrative summary
+- local logic still verifies or replaces those outputs when needed
+- `RiskAssessmentAgent` remains rule-based and final
+- if OpenAI fails for any selected agent, that step falls back locally and the pipeline still completes
 
-- unusual international location plus high amount
-- new device plus high amount
-- several strong signals together
+Tradeoffs:
 
-Mitigating context can reduce the score slightly. For example:
+- stronger demo storytelling and more natural agent behavior
+- more API cost and dependency on network/API availability
+- more trace complexity, which is why provider/model/fallback details are surfaced explicitly
 
-- travel-related history notes
-- known device plus usual merchant
+### Intermittent Fallback Diagnosis
 
-## OpenAI usage
+Based on live logs and replay, intermittent fallback appears more likely than a permanent pipeline failure. The evidence is consistent with output variability on one or two schema-constrained steps, especially because the same case can later succeed without code changes.
 
-OpenAI is used only for optional summary enhancement.
+This does not prove the root cause is only the model. Prompt/schema brittleness or other nondeterministic application factors could also contribute. The safest next step is to compare models under identical settings and add a single targeted retry on schema-validation failure before local fallback.
 
-Core risk scoring remains in code so the workflow is easy to explain in a class presentation and does not depend entirely on the LLM.
+Recommended checks:
 
-## Sample demo cases
+- verify the OpenAI call uses structured outputs such as `response_format: { type: "json_schema", ... strict: true }` or the equivalent Responses API path
+- pin model versions for consistency-sensitive demos, since prompt behavior can vary across model snapshots
+- run a small eval matrix such as `50-100` replays per case, per model, with the same settings
+- log the exact validator failure type: parse error, missing key, enum drift, extra field, truncation, or timeout
+- add one retry only for schema-validation failures before fallback
 
-The app includes three starter examples:
+## How To Inspect Traces
 
-1. Large foreign transaction: likely `High`
-2. Small domestic normal behavior: likely `Low`
-3. Traveling customer with location mismatch: likely `Low` or `Medium`
+There are three trace surfaces:
 
-## POC limitations
+1. Terminal logs
+   - each agent step logs timing, provider, and metadata during local development
+2. API response
+   - `/api/triage` returns a structured `trace` object with run ID, mode, provider summary, timing, and per-agent summaries
+3. UI trace panel
+   - the workstation shows the step timeline, provider, model, fallback reason, timing, metadata, and expandable summaries
 
-- False positives can happen.
-- Travel context may be incomplete or missing.
-- Logic is simplified and not production-grade.
-- The app is not suitable for real fraud operations without stronger controls, auditability, monitoring, and real data integrations.
+Trace format includes:
 
-## Notes for demo presentation
+- `runId`
+- `caseId`
+- `mode`
+- `startedAt`
+- `completedAt`
+- `durationMs`
+- `providerSummary`
+- `events[]`
 
-Helpful framing:
+Each event includes:
 
-- This is a triage assistant, not an autonomous fraud decision-maker.
-- It helps investigators review alerts faster and more consistently.
-- Final disposition remains with the fraud investigator.
+- `agentName`
+- `status`
+- `startedAt`
+- `completedAt`
+- `durationMs`
+- `inputSummary`
+- `outputSummary`
+- `inference` (`provider`, `model`, `attempted`, `verifiedWithRules`, `fallbackReason`, `requestId`)
+- optional `details`
+- optional `metadata`
+
+## Useful Commands
+
+```bash
+npm run dev
+npm run test
+npm run test:watch
+npm run generate:cases
+npm run import:cases -- --input=data/cases/imported/example-import.csv --mapping=data/cases/imported/example-mapping.json
+```
+
+## Limitations
+
+- The scoring logic is intentionally simplified for explainability.
+- Retrieval is local and lexical; it is not embedding-powered yet.
+- Imported CSV support depends on a mapping file rather than automatic schema inference.
+- OpenAI-primary behavior depends on strict schema validation and safe fallbacks; malformed model output is discarded in favor of local logic.
+- This demo is not suitable for real fraud operations without stronger governance, controls, and data integrations.
+
+## Future Work
+
+- add embedding-backed retrieval behind the existing RAG interfaces
+- compare multiple models or providers behind the same agent interface
+- expand imported dataset tooling with UI-assisted mapping
+- add richer trace analytics and case history persistence

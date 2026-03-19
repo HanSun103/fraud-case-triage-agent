@@ -6,13 +6,20 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "generate:cases": "node \"scripts/generateSyntheticCases.mjs\"",
+    "import:cases": "node \"scripts/importCasesFromCsv.mjs\""
   },
   "dependencies": {
+    "csv-parse": "^6.2.0",
     "next": "16.1.7",
     "openai": "6.31.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "server-only": "^0.0.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.2.1",
@@ -22,6 +29,7 @@
     "eslint": "10.0.3",
     "eslint-config-next": "16.1.7",
     "tailwindcss": "4.2.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.1.0"
   }
 }

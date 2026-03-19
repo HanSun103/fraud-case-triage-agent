@@ -1,0 +1,126 @@
+[
+  {
+    "source": "imported",
+    "scenarioType": "External import",
+    "tags": [
+      "csv-import"
+    ],
+    "alert": {
+      "alertSource": "Other",
+      "customer": {
+        "customerSegment": "Other",
+        "accountHistoryNotes": "",
+        "customerId": "ext-001",
+        "customerName": "Morgan Patel",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Toronto, Canada",
+        "accountAgeDays": 420,
+        "priorChargebackCount": 0,
+        "travelNoticeOnFile": true,
+        "analystNotes": "Travel notice verified before review"
+      },
+      "caseId": "ext-001",
+      "alertTriggerReason": "Location mismatch",
+      "analystNotes": "Travel notice verified before review",
+      "transaction": {
+        "caseId": "ext-001",
+        "transactionId": "ext-001",
+        "eventTime": "2026-03-18T14:30",
+        "amount": 240,
+        "currency": "CAD",
+        "channel": "Card Not Present",
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "USA",
+        "transactionLocation": "New York, USA",
+        "prior30dTxnCount": 4,
+        "prior24hTxnCount": 2,
+        "typicalTransactionAmount": 210
+      },
+      "device": {
+        "deviceId": "ext-001",
+        "knownDevice": true,
+        "deviceAgeDays": 320
+      },
+      "merchant": {
+        "merchantName": "Airport Hotel",
+        "merchantCategory": "Travel",
+        "merchantCountry": "USA",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "New York, USA",
+        "homeLocation": "Toronto, Canada",
+        "merchantCountry": "USA",
+        "customerHomeCountry": "Canada"
+      }
+    },
+    "id": "ext-001",
+    "label": "Imported Travel Review",
+    "description": "Travel-related location mismatch with known device",
+    "expectedOutcome": "Low",
+    "expectedRiskTier": "Low"
+  },
+  {
+    "source": "imported",
+    "scenarioType": "External import",
+    "tags": [
+      "csv-import"
+    ],
+    "alert": {
+      "alertSource": "Other",
+      "customer": {
+        "customerSegment": "Other",
+        "accountHistoryNotes": "",
+        "customerId": "ext-002",
+        "customerName": "Jordan Lee",
+        "customerHomeCountry": "Canada",
+        "homeLocation": "Toronto, Canada",
+        "accountAgeDays": 60,
+        "priorChargebackCount": 1,
+        "travelNoticeOnFile": false,
+        "analystNotes": "No supporting travel context found"
+      },
+      "caseId": "ext-002",
+      "alertTriggerReason": "Unusual location + high amount",
+      "analystNotes": "No supporting travel context found",
+      "transaction": {
+        "caseId": "ext-002",
+        "transactionId": "ext-002",
+        "eventTime": "2026-03-19T09:05",
+        "amount": 2450,
+        "currency": "CAD",
+        "channel": "Online",
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Mexico",
+        "transactionLocation": "Mexico City, Mexico",
+        "prior30dTxnCount": 8,
+        "prior24hTxnCount": 6,
+        "typicalTransactionAmount": 180
+      },
+      "device": {
+        "deviceId": "ext-002",
+        "knownDevice": false,
+        "deviceAgeDays": 0
+      },
+      "merchant": {
+        "merchantName": "Electronics World",
+        "merchantCategory": "Electronics",
+        "merchantCountry": "Mexico",
+        "knownMerchant": false
+      },
+      "geolocation": {
+        "transactionLocation": "Mexico City, Mexico",
+        "homeLocation": "Toronto, Canada",
+        "merchantCountry": "Mexico",
+        "customerHomeCountry": "Canada"
+      }
+    },
+    "id": "ext-002",
+    "label": "Imported High Amount Cross-Border",
+    "description": "Foreign high-value electronics purchase on unknown device",
+    "expectedOutcome": "High",
+    "expectedRiskTier": "High"
+  }
+]

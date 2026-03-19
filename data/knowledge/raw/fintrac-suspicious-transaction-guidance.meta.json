@@ -1,0 +1,17 @@
+{
+  "id": "fintrac-suspicious-transaction-guidance",
+  "title": "FINTRAC Suspicious Transaction Guidance Placeholder",
+  "sourceUrl": "https://fintrac-canafe.canada.ca/",
+  "sourceType": "official-guidance",
+  "jurisdiction": "Canada",
+  "topic": "Suspicious transaction indicators",
+  "publicationDate": "2026-03-18",
+  "tags": [
+    "fintrac",
+    "suspicious-transaction",
+    "cross-border",
+    "new-device",
+    "velocity",
+    "travel-context"
+  ]
+}
